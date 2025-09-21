@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Zufriedenheit und Glück</title>
+  <style>
+    html, body { 
+      margin: 0; 
+      padding: 0; 
+      background: #000; 
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; 
+    }
+
+    /* Bild scrollt mit der Seite */
+    .bgimg {
+      display: block;
+      width: 100vw;
+      height: auto;
+    }
+
+    /* Leichte Abdunkelung für Lesbarkeit */
+    .scrim {
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(closest-side, rgba(0,0,0,0.35), rgba(0,0,0,0.55));
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Schwebender Text */
+    .overlay {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      pointer-events: none;
+      padding: 0 4vw;
+      z-index: 2;
+    }
+
+    .overlay h1 {
+      margin: 0;
+      font-size: clamp(24px, 5vw, 56px);
+      line-height: 1.3; /* etwas mehr Zeilenabstand */
+      color: #fff;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.6);
+      letter-spacing: 0.02em;
+      font-weight: 700;
+    }
+
+    /* Schwebe-Animation */
+    @keyframes float {
+      0%, 100% { transform: translate(-50%, -50%); }
+      50%      { transform: translate(-50%, calc(-50% - 6px)); }
+    }
+    .overlay.animate h1 { 
+      animation: float 3.2s ease-in-out infinite; 
+    }
+  </style>
+</head>
+<body>
+  <!-- Hintergrundbild -->
+  <img class="bgimg" src="https://www.dropbox.com/scl/fi/oq3bf8ea5r9n6yj2iy9tk/IMG_8457.jpeg?rlkey=hbyq6ool19oncu8w_
