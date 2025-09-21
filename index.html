@@ -13,7 +13,7 @@
       background: #000;
     }
 
-    /* Hintergrundbild – füllt den Bildschirm */
+    /* Hintergrundbild – füllt Bildschirm */
     body {
       background: url("https://raw.githubusercontent.com/coachhanni/homepage/main/IMG_8457.jpeg") 
                   no-repeat center center;
@@ -28,7 +28,7 @@
       z-index: 1;
     }
 
-    /* Overlay mit zentriertem Inhalt */
+    /* Overlay mit zentriertem Text */
     .overlay {
       position: fixed;
       inset: 0;
@@ -39,6 +39,7 @@
       text-align: center;
       z-index: 2;
       padding: 0 4vw;
+      pointer-events: none;
     }
 
     .overlay h1 {
@@ -50,7 +51,7 @@
       font-weight: 700;
     }
 
-    /* Sanfte Schwebe-Animation für Text */
+    /* Sanfte Schwebe-Animation */
     @keyframes float {
       0%, 100% { transform: translateY(0); }
       50%      { transform: translateY(-6px); }
@@ -59,13 +60,10 @@
       animation: float 3.2s ease-in-out infinite;
     }
 
-    /* GIF-Styling */
-    iframe.tenor-gif-embed {
-      border: none;
-      max-width: 300px;  /* gewünschte Maximalbreite */
-      width: 100%;
-      height: auto;
-      aspect-ratio: 1.23; /* sorgt für korrektes Seitenverhältnis */
+    /* GIF soll klickbar bleiben */
+    .tenor-gif-embed {
+      pointer-events: auto;
+      max-width: 300px; /* optional: maximale Breite */
     }
   </style>
 </head>
@@ -73,7 +71,7 @@
   <!-- Abdunkelung -->
   <div class="scrim"></div>
 
-  <!-- Text + GIF -->
+  <!-- Zentraler Text + GIF -->
   <div class="overlay">
     <h1>
       Zufriedenheit und Glück sind nichts, was fertig geliefert wird.<br>
@@ -81,12 +79,14 @@
       – Dalai Lama –
     </h1>
 
-    <!-- GIF per iframe -->
-    <iframe 
-      src="https://tenor.com/embed/13217569520553578655" 
-      class="tenor-gif-embed" 
-      allowfullscreen>
-    </iframe>
+    <!-- Dein Tenor GIF -->
+    <div class="tenor-gif-embed" data-postid="13217569520553578655" data-share-method="host" data-aspect-ratio="1.23267" data-width="100%">
+      <a href="https://tenor.com/view/blue-punisher-e-man-gif-13217569520553578655">Blue Punisher E Man GIF</a> 
+      from <a href="https://tenor.com/search/blue+punisher+e+man-gifs">Blue Punisher E Man GIFs</a>
+    </div>
   </div>
+
+  <!-- Script von Tenor -->
+  <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
 </body>
 </html>
