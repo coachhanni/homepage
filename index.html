@@ -13,14 +13,14 @@
       background: #000;
     }
 
-    /* Hintergrundcontainer */
+    /* Hintergrundbild – füllt den gesamten Bildschirm */
     .bg {
-      min-height: 200vh; /* sorgt dafür, dass du nach unten scrollen kannst */
-      background: url("https://raw.githubusercontent.com/coachhanni/homepage/main/IMG_8457.jpeg") no-repeat top center;
-      background-size: contain; /* zeigt das komplette Hochformat-Bild */
+      min-height: 200vh; /* genug Höhe, damit man beim Scrollen den unteren Teil sieht */
+      background: url("https://raw.githubusercontent.com/coachhanni/homepage/main/IMG_8457.jpeg") no-repeat center center;
+      background-size: cover; /* Bild füllt den ganzen Bereich */
     }
 
-    /* Abdunkelung */
+    /* Abdunkelung für besseren Kontrast */
     .scrim {
       position: fixed;
       inset: 0;
@@ -29,7 +29,7 @@
       z-index: 1;
     }
 
-    /* Overlay-Container für zentrierten Text */
+    /* Overlay-Container für den Text */
     .overlay {
       position: fixed;
       inset: 0;
