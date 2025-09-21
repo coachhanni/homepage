@@ -7,74 +7,35 @@
   <style>
     html, body {
       margin: 0;
-      padding: 0;
       height: 100%;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      background: #000;
     }
 
-    /* Hintergrundbild – füllt den gesamten Bildschirm */
-    .bg {
-      min-height: 200vh; /* genug Höhe, damit man beim Scrollen den unteren Teil sieht */
-      background: url("https://raw.githubusercontent.com/coachhanni/homepage/main/IMG_8457.jpeg") no-repeat center center;
-      background-size: cover; /* Bild füllt den ganzen Bereich */
-    }
-
-    /* Abdunkelung für besseren Kontrast */
-    .scrim {
-      position: fixed;
-      inset: 0;
-      background: radial-gradient(closest-side, rgba(0,0,0,0.35), rgba(0,0,0,0.55));
-      pointer-events: none;
-      z-index: 1;
-    }
-
-    /* Overlay-Container für den Text */
-    .overlay {
-      position: fixed;
-      inset: 0;
+    /* Hintergrundbild */
+    body {
+      background: url("https://raw.githubusercontent.com/coachhanni/homepage/main/IMG_8457.jpeg") 
+                  no-repeat center center;
+      background-size: cover; /* Bild füllt Bildschirm */
       display: flex;
-      align-items: center;     /* vertikal zentriert */
-      justify-content: center; /* horizontal zentriert */
+      align-items: center;   /* vertikal zentrieren */
+      justify-content: center; /* horizontal zentrieren */
       text-align: center;
-      pointer-events: none;
-      z-index: 2;
-      padding: 0 4vw;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
     }
 
-    .overlay h1 {
-      margin: 0;
+    h1 {
+      color: #fff;
       font-size: clamp(24px, 5vw, 56px);
       line-height: 1.3;
-      color: #fff;
       text-shadow: 0 2px 12px rgba(0,0,0,0.6);
-      font-weight: 700;
-    }
-
-    /* Sanfte Schwebe-Animation (optional) */
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50%      { transform: translateY(-6px); }
-    }
-    .overlay h1 {
-      animation: float 3.2s ease-in-out infinite;
+      margin: 0;
     }
   </style>
 </head>
 <body>
-  <!-- Hintergrund -->
-  <div class="bg"></div>
-
-  <!-- Abdunkelung -->
-  <div class="scrim"></div>
-
-  <!-- Zentraler Text -->
-  <div class="overlay">
-    <h1>
-      Zufriedenheit und Glück sind nichts, was fertig geliefert wird.<br>
-      Sie entstehen durch dein eigenes Handeln.<br>
-      – Dalai Lama –
-    </h1>
-  </div>
+  <h1>
+    Zufriedenheit und Glück sind nichts, was fertig geliefert wird.<br>
+    Sie entstehen durch dein eigenes Handeln.<br>
+    – Dalai Lama –
+  </h1>
 </body>
 </html>
