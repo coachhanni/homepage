@@ -33,9 +33,8 @@
       position: fixed;
       inset: 0;
       display: flex;
-      flex-direction: column;   /* Text und GIF untereinander */
-      align-items: center;      /* horizontal zentriert */
-      justify-content: center;  /* vertikal zentriert */
+      align-items: center;     /* vertikal zentriert */
+      justify-content: center; /* horizontal zentriert */
       text-align: center;
       z-index: 2;
       padding: 0 4vw;
@@ -43,7 +42,7 @@
     }
 
     .overlay h1 {
-      margin: 0 0 1rem 0;
+      margin: 0;
       font-size: clamp(24px, 5vw, 56px);
       line-height: 1.3;
       color: #fff;
@@ -59,34 +58,19 @@
     .overlay h1 {
       animation: float 3.2s ease-in-out infinite;
     }
-
-    /* GIF soll klickbar bleiben */
-    .tenor-gif-embed {
-      pointer-events: auto;
-      max-width: 300px; /* optional: maximale Breite */
-    }
   </style>
 </head>
 <body>
   <!-- Abdunkelung -->
   <div class="scrim"></div>
 
-  <!-- Zentraler Text + GIF -->
+  <!-- Zentraler Text -->
   <div class="overlay">
     <h1>
       Zufriedenheit und Glück sind nichts, was fertig geliefert wird.<br>
       Sie entstehen durch dein eigenes Handeln.<br>
       – Dalai Lama –
     </h1>
-
-    <!-- Dein Tenor GIF -->
-    <div class="tenor-gif-embed" data-postid="13217569520553578655" data-share-method="host" data-aspect-ratio="1.23267" data-width="100%">
-      <a href="https://tenor.com/view/blue-punisher-e-man-gif-13217569520553578655">Blue Punisher E Man GIF</a> 
-      from <a href="https://tenor.com/search/blue+punisher+e+man-gifs">Blue Punisher E Man GIFs</a>
-    </div>
   </div>
-
-  <!-- Script von Tenor -->
-  <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
 </body>
 </html>
