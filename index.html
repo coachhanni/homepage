@@ -15,10 +15,9 @@
 
     /* Hintergrundcontainer */
     .bg {
-      min-height: 200vh;
-      background: url("https://raw.githubusercontent.com/coachhanni/homepage/main/IMG_8457.jpeg") no-repeat center center;
-      background-size: contain;
-      position: relative;
+      min-height: 200vh; /* sorgt dafür, dass du nach unten scrollen kannst */
+      background: url("https://raw.githubusercontent.com/coachhanni/homepage/main/IMG_8457.jpeg") no-repeat top center;
+      background-size: contain; /* zeigt das komplette Hochformat-Bild */
     }
 
     /* Abdunkelung */
@@ -30,13 +29,13 @@
       z-index: 1;
     }
 
-    /* Text zentriert im Viewport */
+    /* Overlay-Container für zentrierten Text */
     .overlay {
       position: fixed;
       inset: 0;
       display: flex;
-      align-items: center;
-      justify-content: center;
+      align-items: center;     /* vertikal zentriert */
+      justify-content: center; /* horizontal zentriert */
       text-align: center;
       pointer-events: none;
       z-index: 2;
@@ -51,11 +50,25 @@
       text-shadow: 0 2px 12px rgba(0,0,0,0.6);
       font-weight: 700;
     }
+
+    /* Sanfte Schwebe-Animation (optional) */
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50%      { transform: translateY(-6px); }
+    }
+    .overlay h1 {
+      animation: float 3.2s ease-in-out infinite;
+    }
   </style>
 </head>
 <body>
+  <!-- Hintergrund -->
   <div class="bg"></div>
+
+  <!-- Abdunkelung -->
   <div class="scrim"></div>
+
+  <!-- Zentraler Text -->
   <div class="overlay">
     <h1>
       Zufriedenheit und Glück sind nichts, was fertig geliefert wird.<br>
