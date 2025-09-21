@@ -8,18 +8,19 @@
     html, body { 
       margin: 0; 
       padding: 0; 
-      background: #000; 
+      height: 100%; 
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; 
+      background: #000; 
     }
 
-    /* Bild scrollt mit der Seite */
-    .bgimg {
-      display: block;
-      width: 100vw;
-      height: auto;
+    /* Container mit Hintergrundbild */
+    .bg {
+      min-height: 200vh; /* genug Höhe zum Scrollen */
+      background: url("https://raw.githubusercontent.com/coachhanni/homepage/main/IMG_8457.jpeg") no-repeat top center;
+      background-size: contain; /* zeigt ganzes Hochformat-Bild an */
     }
 
-    /* Leichte Abdunkelung für Lesbarkeit */
+    /* Abdunkelung für besseren Kontrast */
     .scrim {
       position: fixed;
       inset: 0;
@@ -43,7 +44,7 @@
     .overlay h1 {
       margin: 0;
       font-size: clamp(24px, 5vw, 56px);
-      line-height: 1.3; /* etwas mehr Zeilenabstand */
+      line-height: 1.3;
       color: #fff;
       text-shadow: 0 2px 12px rgba(0,0,0,0.6);
       letter-spacing: 0.02em;
@@ -55,11 +56,23 @@
       0%, 100% { transform: translate(-50%, -50%); }
       50%      { transform: translate(-50%, calc(-50% - 6px)); }
     }
-    .overlay.animate h1 { 
-      animation: float 3.2s ease-in-out infinite; 
-    }
+    .overlay.animate h1 { animation: float 3.2s ease-in-out infinite; }
   </style>
 </head>
 <body>
-  <!-- Hintergrundbild -->
-  <img class="bgimg" src="https://www.dropbox.com/scl/fi/oq3bf8ea5r9n6yj2iy9tk/IMG_8457.jpeg?rlkey=hbyq6ool19oncu8w_
+  <!-- Bildcontainer -->
+  <div class="bg"></div>
+
+  <!-- Abdunkelung -->
+  <div class="scrim" aria-hidden="true"></div>
+
+  <!-- Zitat -->
+  <div class="overlay animate">
+    <h1>
+      Zufriedenheit und Glück sind nichts, was fertig geliefert wird.<br>
+      Sie entstehen durch dein eigenes Handeln.<br>
+      – Dalai Lama –
+    </h1>
+  </div>
+</body>
+</html>
