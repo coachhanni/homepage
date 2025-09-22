@@ -13,7 +13,7 @@
       background: #000;
     }
 
-    /* Hintergrundbild – füllt Bildschirm */
+    /* Hintergrundbild – füllt den Bildschirm */
     body {
       background: url("https://raw.githubusercontent.com/coachhanni/homepage/main/IMG_8457.jpeg") 
                   no-repeat center center;
@@ -28,21 +28,21 @@
       z-index: 1;
     }
 
-    /* Overlay mit zentriertem Text */
+    /* Overlay mit zentriertem Inhalt */
     .overlay {
       position: fixed;
       inset: 0;
       display: flex;
-      align-items: center;     /* vertikal zentriert */
-      justify-content: center; /* horizontal zentriert */
+      flex-direction: column;   /* Text und Symbol untereinander */
+      align-items: center;      /* horizontal zentriert */
+      justify-content: center;  /* vertikal zentriert */
       text-align: center;
       z-index: 2;
       padding: 0 4vw;
-      pointer-events: none;
     }
 
     .overlay h1 {
-      margin: 0;
+      margin: 0 0 1.5rem 0;
       font-size: clamp(24px, 5vw, 56px);
       line-height: 1.3;
       color: #fff;
@@ -50,7 +50,7 @@
       font-weight: 700;
     }
 
-    /* Sanfte Schwebe-Animation */
+    /* Sanfte Schwebe-Animation für Text */
     @keyframes float {
       0%, 100% { transform: translateY(0); }
       50%      { transform: translateY(-6px); }
@@ -58,20 +58,36 @@
     .overlay h1 {
       animation: float 3.2s ease-in-out infinite;
     }
+
+    /* Scroll-Pfeil */
+    .scroll-down {
+      font-size: 2.5rem;
+      color: #fff;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+      margin-top: 1rem;
+      animation: bounce 1.5s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(8px); }
+    }
   </style>
 </head>
 <body>
   <!-- Abdunkelung -->
   <div class="scrim"></div>
 
-  <!-- Zentraler Text -->
+  <!-- Text + Scroll-Hinweis -->
   <div class="overlay">
     <h1>
       Zufriedenheit und Glück sind nichts, was fertig geliefert wird.<br>
       Sie entstehen durch dein eigenes Handeln.<br>
-      <br>
       – Dalai Lama –
     </h1>
+
+    <!-- Pfeil nach unten -->
+    <div class="scroll-down">↓</div>
   </div>
 </body>
 </html>
