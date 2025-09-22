@@ -17,21 +17,21 @@
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       background: #000;
       color: #fff;
+      scroll-behavior: smooth; /* sorgt für sanftes Scrollen */
     }
 
     /* ===== Sektion 1: Hero mit Hintergrundbild ===== */
     .hero {
       position: relative;
-      min-height: 100vh;                     /* genau eine Bildschirmhöhe */
+      min-height: 100vh;
       background: var(--hero-img) no-repeat center center / cover;
       display: flex;
-      align-items: center;                   /* vertikal zentriert */
-      justify-content: center;               /* horizontal zentriert */
+      align-items: center;
+      justify-content: center;
       text-align: center;
       overflow: hidden;
     }
 
-    /* Abdunkelung nur über dem Hero */
     .hero::after {
       content: "";
       position: absolute;
@@ -41,7 +41,7 @@
     }
 
     .hero-content {
-      position: relative; /* über der Scrim */
+      position: relative;
       z-index: 1;
       padding: 0 4vw;
     }
@@ -52,7 +52,7 @@
       line-height: 1.3;
       text-shadow: 0 2px 12px rgba(0,0,0,0.6);
       font-weight: 700;
-      animation: float 3.2s ease-in-out infinite; /* sanftes Schweben */
+      animation: float 3.2s ease-in-out infinite;
     }
 
     @keyframes float {
@@ -60,7 +60,7 @@
       50%      { transform: translateY(-6px); }
     }
 
-    /* Pfeil unten am Bildschirmrand (nur in der Hero-Sektion sichtbar) */
+    /* Pfeil unten */
     .scroll-down {
       position: absolute;
       bottom: 20px;
@@ -70,41 +70,38 @@
       line-height: 1;
       text-shadow: 0 2px 8px rgba(0,0,0,0.7);
       animation: bounce 1.5s infinite;
+      z-index: 2;
+      cursor: pointer; /* klickbar */
       user-select: none;
-      pointer-events: none; /* explizit nicht klickbar */
-      z-index: 1;
     }
 
     @keyframes bounce {
       0%, 100% { transform: translate(-50%, 0); }
-      50%      { transform: translate(-50%, 12px); }
+      50% { transform: translate(-50%, 12px); }
     }
 
-    /* ===== Sektion 2: Schwarzer Hintergrund mit bp.png zentriert ===== */
+    /* ===== Sektion 2: Schwarzer Hintergrund mit bp.png ===== */
     .bp-section {
-      min-height: 100vh;                      /* zweite „Seite“ */
+      min-height: 100vh;
       background: #000;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 8vh 4vw;                       /* etwas Luft an Rändern */
+      padding: 8vh 4vw;
     }
 
     .bp-img {
-      max-width: min(90vw, 900px);            /* begrenze Größe responsiv */
+      max-width: min(90vw, 900px);
       width: 100%;
       height: auto;
       display: block;
       filter: drop-shadow(0 8px 24px rgba(0,0,0,0.6));
-    }
-
-    /* Optional: sanftes Einblenden der zweiten Sektion */
-    .bp-img {
       opacity: 0;
       transform: translateY(12px);
       animation: fadeInUp 600ms ease-out forwards;
       animation-delay: 160ms;
     }
+
     @keyframes fadeInUp {
       to { opacity: 1; transform: translateY(0); }
     }
@@ -118,17 +115,22 @@
       <h1>
         Zufriedenheit und Glück sind nichts, was fertig geliefert wird.<br>
         Sie entstehen durch dein eigenes Handeln.<br>
-        <br>
         – Dalai Lama –
       </h1>
     </div>
-    <div class="scroll-down">↓</div>
+    <div id="scrollArrow" class="scroll-down">↓</div>
   </section>
 
-  <!-- Sektion 2: Schwarzer Hintergrund + zentriertes bp.png -->
-  <section class="bp-section">
+  <!-- Sektion 2 -->
+  <section class="bp-section" id="bpSection">
     <img class="bp-img" src="https://raw.githubusercontent.com/coachhanni/homepage/main/bp.png" alt="bp">
   </section>
 
+  <script>
+    // Klick auf den Pfeil → sanft zur zweiten Sektion scrollen
+    document.getElementById("scrollArrow").addEventListener("click", () => {
+      document.getElementById("bpSection").scrollIntoView({ behavior: "smooth" });
+    });
+  </script>
 </body>
 </html>
