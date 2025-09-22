@@ -17,10 +17,10 @@
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       background: #000;
       color: #fff;
-      scroll-behavior: smooth; /* sorgt für sanftes Scrollen */
+      /* global smooth behavior lassen wir weg, sonst stört es */
     }
 
-    /* ===== Sektion 1: Hero mit Hintergrundbild ===== */
+    /* ===== Sektion 1 ===== */
     .hero {
       position: relative;
       min-height: 100vh;
@@ -71,7 +71,7 @@
       text-shadow: 0 2px 8px rgba(0,0,0,0.7);
       animation: bounce 1.5s infinite;
       z-index: 2;
-      cursor: pointer; /* klickbar */
+      cursor: pointer;
       user-select: none;
     }
 
@@ -80,7 +80,7 @@
       50% { transform: translate(-50%, 12px); }
     }
 
-    /* ===== Sektion 2: Schwarzer Hintergrund mit bp.png ===== */
+    /* ===== Sektion 2 ===== */
     .bp-section {
       min-height: 100vh;
       background: #000;
@@ -109,7 +109,7 @@
 </head>
 <body>
 
-  <!-- Sektion 1: Hero -->
+  <!-- Sektion 1 -->
   <section class="hero">
     <div class="hero-content">
       <h1>
@@ -128,9 +128,31 @@
   </section>
 
   <script>
-    // Klick auf den Pfeil → sanft zur zweiten Sektion scrollen
+    // eigene Scroll-Funktion für langsames Scrollen
+    function smoothScrollTo(targetY, duration = 2000) {
+      const startY = window.scrollY;
+      const distance = targetY - startY;
+      let startTime = null;
+
+      function animation(currentTime) {
+        if (startTime === null) startTime = currentTime;
+        const timeElapsed = currentTime - startTime;
+        const progress = Math.min(timeElapsed / duration, 1); // 0..1
+        const ease = progress < 0.5
+          ? 2 * progress * progress          // easeIn
+          : -1 + (4 - 2 * progress) * progress; // easeOut
+        window.scrollTo(0, startY + distance * ease);
+
+        if (timeElapsed < duration) {
+          requestAnimationFrame(animation);
+        }
+      }
+      requestAnimationFrame(animation);
+    }
+
     document.getElementById("scrollArrow").addEventListener("click", () => {
-      document.getElementById("bpSection").scrollIntoView({ behavior: "smooth" });
+      const target = document.getElementById("bpSection").offsetTop;
+      smoothScrollTo(target, 2000); // 2000 ms = 2 Sekunden
     });
   </script>
 </body>
